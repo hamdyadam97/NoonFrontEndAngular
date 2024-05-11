@@ -1,0 +1,225 @@
+.img {
+  height: 120px;
+  width: auto;
+  margin: 10px 20px;
+}
+
+#bigimg {
+  margin: 20px auto;
+}
+
+#sp {
+  margin-left: 20px;
+  color: #666;
+}
+
+#mon {
+  background-color: #f8f8f8;
+  margin: 20px auto;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.mon2,
+.mon3 {
+  margin-left: 10px;
+  color: #666;
+}
+
+#vi {
+  height: 40px;
+  width: auto;
+}
+
+#vi2 {
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+#dl {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px auto;
+}
+
+#cart {
+  margin: 30px auto 50px;
+}
+
+#cat2 {
+  margin-left: 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#cat2:hover {
+  background-color: #0056b3;
+}
+
+.imgright {
+  margin-left: 20px;
+}
+
+.col {
+  color: #666;
+}
+
+#dis {
+  font-size: 18px;
+}
+
+#tit {
+  color: #333;
+  font-size: 24px;
+}
+
+#acat {
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+.cart-container {
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.cart-container > div {
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial;
+  margin: 0 auto; /* Center website */
+  max-width: 800px; /* Max width */
+  padding: 20px;
+}
+
+.heading {
+  font-size: 25px;
+  margin-right: 25px;
+}
+
+.fa {
+  font-size: 25px;
+}
+
+.checked {
+  color: orange;
+}
+
+/* Three column layout */
+.side {
+  float: left;
+  width: 15%;
+  margin-top: 10px;
+}
+
+.middle {
+  margin-top: 10px;
+  float: left;
+  width: 70%;
+}
+
+/* Place text to the right */
+.right {
+  text-align: right;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* The bar container */
+.bar-container {
+  width: 100%;
+  background-color: #f1f1f1;
+  text-align: center;
+  color: white;
+}
+
+/* Individual bars */
+.bar-5 {
+  width: 40%;
+  height: 18px;
+  background-color: #71FF66;
+}
+.bar-4 {
+  width: 30%;
+  height: 18px;
+  background-color: #2196f3;
+}
+.bar-3 {
+  width: 10%;
+  height: 18px;
+  background-color: #FC1991;
+}
+.bar-2 {
+  width: 4%;
+  height: 18px;
+  background-color: #FF0808;
+}
+.bar-1 {
+  width: 15%;
+  height: 18px;
+  background-color: #CB19FC;
+}
+
+/* Responsive layout - make the columns stack on top of each other instead of next to each other */
+@media (max-width: 400px) {
+  .side,
+  .middle {
+    width: 100%;
+  }
+  .right {
+    display: none;
+  }
+}
+/* rate-form.component.css */
+form {
+  background-color: #f5f3f3; /* Dark background color for the form */
+  padding: 20px; /* Optional: Add padding for spacing */
+}
+
+input[type="number"],
+select,
+textarea {
+  border: 2px solid yellow;
+  border-radius: 5px;
+  padding: 8px;
+  margin-bottom: 10px;
+  background-color: #cbcbcb; /* Dark background color for input fields */
+  color: white; /* Text color */
+}
+
+/* Optional: Add additional styling as needed */
+label {
+  font-weight: bold;
+}

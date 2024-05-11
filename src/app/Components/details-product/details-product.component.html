@@ -1,0 +1,1217 @@
+
+
+<!-- content -->
+
+<div class="w3-sidebar w3-bar-block w3-border-left" dir="rtl" style="display:none; width: 550px; position: fixed; top: 130px; right: 0; justify-content: center;" id="mySidebar">
+  <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
+  <app-show-add-to-cart style="position: absolute;align-content: center; display: block;right: 150px;"></app-show-add-to-cart>
+</div>
+<section class="py-5">
+  <div class="">
+    
+    <div class="row gx-5">
+      <div class="col-lg-4">
+        <div style="margin-top: 30px" class="">
+    
+          <div id="acat2" [style.display]="NooNElement ? 'block' : 'none'">
+            <div style="display: flex">
+              <div class="imgright">
+                <img
+                  src="https://f.nooncdn.com/s/app/com/noon/icons/warranty.svg"
+                  alt=""
+                />
+              </div>
+              <div>
+                <span>
+                  {{ "No warranty" | translate }}
+                  <a href="">{{ "Learn more" | translate }}</a>
+                </span>
+              </div>
+            </div>
+      
+            <div style="display: flex; margin-top: 30px">
+              <div class="imgright">
+                <img
+                  src="https://f.nooncdn.com/s/app/com/noon/icons/noon-locker.svg"
+                  alt=""
+                />
+              </div>
+              <div>
+                <span>
+                  {{ "Free delivery" | translate }}
+                  <a href="">{{ "Learn more" | translate }}</a>
+                </span>
+              </div>
+            </div>
+      
+            <div style="display: flex; margin-top: 30px">
+              <div class="imgright">
+                <img
+                  src="https://f.nooncdn.com/s/app/com/noon/icons/free_returns.svg"
+                  alt=""
+                />
+              </div>
+              <div>
+                <span>
+                  {{ "Enjoy hassle" | translate }}
+                  <a href="">{{ "Learn more" | translate }}</a>
+                </span>
+              </div>
+            </div>
+      
+            <div style="display: flex; margin-top: 30px">
+              <div class="imgright">
+                <img
+                  src="https://f.nooncdn.com/s/app/com/noon/icons/free_returns_usp.svg"
+                  alt=""
+                />
+              </div>
+              <div>
+                <span>
+                  <span>{{ "FREE RETURNS" | translate }}</span>
+                  <a href=""><span >{{ "Get free" | translate }} </span></a>
+                </span>
+              </div>
+            </div>
+            <div style="display: flex; margin-top: 30px">
+              <div class="imgright">
+                <img
+                  src="https://f.nooncdn.com/s/app/com/noon/icons/trusted_shipping_usp_v2.svg"
+                  alt=""
+                />
+              </div>
+              <div>
+                <span>
+                  <span>{{ "TRUSTED SHIPPING" | translate }}</span
+                  >
+                  <a> <span >{{ "Free shipping when" | translate }}</span></a>
+                </span>
+               
+              </div>
+            </div>
+      
+            <div style="display: flex; margin-top: 30px">
+              <div class="imgright">
+                <img
+                  src="https://f.nooncdn.com/s/app/com/noon/icons/secure_usp.svg"
+                  alt=""
+                />
+              </div>
+              <div>
+                <span>
+                  <span>{{ "SECURE SHOPPING" | translate }}</span
+                  ><a><span >{{ "Your data" | translate }}</span></a>
+                  
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <aside class="col-lg-4">
+        <div
+          class="border rounded-4 mb-3 d-flex justify-content-center"
+          *ngIf="product && product.images && product.images.length > 0"
+        >
+          <a
+            data-fslightbox="mygalley"
+            class="rounded-4"
+            target="_blank"
+            data-type="image"
+            href="https://mdbcdn.b-cdn.net/img/bootstrap-ecommerce/items/detail1/big.webp"
+          >
+            <img
+              style="max-width: 100%; max-height: 100vh; margin: auto"
+              class="rounded-4 fit"
+              [src]="product.images[0]"
+            />
+          </a>
+        </div>
+        <div
+          class="d-flex justify-content-center mb-3"
+          *ngIf="product && product.images && product.images.length > 0"
+        >
+          <a
+            data-fslightbox="mygalley"
+            class="border mx-1 rounded-2"
+            target="_blank"
+            data-type="image"
+            *ngFor="let image of product.images"
+            [href]="image"
+            class="item-thumb"
+          >
+            <img width="60" height="60" class="rounded-2" [src]="image" />
+          </a>
+        </div>
+        <!-- thumbs-wrap.// -->
+        <!-- gallery-wrap .end// -->
+      </aside>
+      
+      <main class="col-lg-4">
+        <div class="ps-lg-3">
+          <img src="https://f.nooncdn.com/mpcms/EN0003/assets/760b884b-9207-49e0-8a6b-6f3e90dfc0ee.png?format=avif" width="100%"/><br>
+              
+          <h4 class="title text-dark">
+            @if(language==='en') {
+            <h4 id="tit">{{ product?.title }}</h4>
+
+            } @else {
+            <h4 id="tit">{{ product?.title_AR }}</h4>
+            }
+          </h4>
+          <div class="d-flex flex-row my-3">
+            <div class="text-warning  p-1 mb-1 me-2">
+             
+              
+             <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+              <span class="ms-1"> 4.5 </span>
+            </div>
+            <span class="text-muted"
+              ><i class="fas fa-shopping-basket fa-sm mx-1"></i>154 orders</span
+            >
+            <span class="text-success ms-2">In stock</span>
+          </div>
+
+          <div class="mb-3">
+            <span class="h5">{{ product?.price }}</span>
+            <span class="text-muted">/per box</span>
+          </div>
+
+          <p>
+            <app-more-less
+              id="dis"
+              [text]="
+                language === 'en'
+                  ? product?.description || ''
+                  : product?.description_AR || ''
+              "
+              [wordlimit]="20"
+            ></app-more-less>
+          </p>
+
+          <div class="row">
+            <p class="col-9">
+              {{ "Model Number" | translate }} : {{ product?.modelNumber }}
+            </p>
+            <h4 class="col-3">{{ "High Rated" | translate }}</h4>
+
+            <p class="col-9">{{ product?.shippingMethod }}</p>
+            <p class="col-3">{{ "Seller" | translate }}</p>
+
+            <p class="col-9">{{ "Monthly payment" | translate }}</p>
+            <p class="col-3">{{ "Low" | translate }}</p>
+
+            <p class="col-9">{{ "payments available" | translate }}</p>
+            <p class="col-3">{{ "Delivery by" | translate }}</p>
+          </div>
+
+          <hr />
+
+          <div class="row mb-4">
+            <div class="col-md-4 col-6">
+              <label class="mb-2">rate</label>
+              <select
+                class="form-select border border-secondary"
+                style="height: 35px"
+              >
+                <option selected>{{ "Low" | translate }}</option>
+                <option>{{ "Low" | translate }}</option>
+                <option>{{ "Low" | translate }}</option>
+              </select>
+            </div>
+            <!-- col.// -->
+            <div class="col-md-4 col-6 mb-3">
+              <label class="mb-2 d-block">{{ "Quantity" | translate }}</label>
+              <div class="input-group mb-3" style="width: 170px">
+                <button
+                  class="btn btn-white border border-secondary px-3"
+                  type="button"
+                  id="button-addon1"
+                  (click)="reductionNumber()"
+                  
+                  data-mdb-ripple-color="dark"
+                >
+                  <i class="fas fa-minus"></i>
+                </button>
+                <input
+                 
+                  class="form-control text-center border border-secondary"
+                  placeholder="1"
+                  [value]="currentNumber"
+                  type="number"
+                  [(ngModel)]="currentNumber"
+                  aria-label="Example text with button addon"
+                  aria-describedby="button-addon1"
+                />
+                <button
+                  class="btn btn-white border border-secondary px-3"
+                  type="button"
+                  id="button-addon2"
+                  (click)="incrementNumber()"
+                  data-mdb-ripple-color="dark"
+                >
+                  <i class="fas fa-plus"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <a
+            (click)="createCart()"
+            (click)="NoonSt()"
+            (click)="toggleAddToCart()"
+            (click)="w3_open()"
+            class="btn shadow-0"
+          >
+            <i class="me-1 fa fa-shopping-basket"></i>
+            {{ "Add To Cart" | translate }}
+          </a>
+          <a
+            href="#"
+            class="btn btn-light border border-secondary py-2 icon-hover px-3"
+          >
+            <i class="me-1 fa fa-heart fa-lg"></i> Save
+          </a>
+        </div>
+      </main>
+      
+    
+          
+         
+          
+    </div>
+  </div>
+</section>
+<!-- content -->
+
+<section class="bg-light border-top py-4">
+  <div class="p-5">
+    <div class="row gx-4">
+      <div class="col-lg-8 mb-4">
+        <div class="border rounded-2 px-3 py-2 bg-white">
+          <!-- Pills navs -->
+          <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
+            <li class="nav-item d-flex" role="presentation">
+              <a
+                class="nav-link d-flex align-items-center justify-content-center w-100 active"
+                id="ex1-tab-1"
+                data-mdb-toggle="pill"
+                href="#ex1-pills-1"
+                role="tab"
+                aria-controls="ex1-pills-1"
+                aria-selected="true"
+                >{{ "Specifications" | translate }}</a
+              >
+            </li>
+            <li class="nav-item d-flex" role="presentation">
+              <a
+                class="nav-link d-flex align-items-center justify-content-center w-100"
+                id="ex1-tab-2"
+                data-mdb-toggle="pill"
+                href="#ex1-pills-2"
+                role="tab"
+                aria-controls="ex1-pills-2"
+                aria-selected="false"
+                > {{"Warranty info"|translate}}</a
+              >
+            </li>
+            <li class="nav-item d-flex" role="presentation">
+              <a
+                class="nav-link d-flex align-items-center justify-content-center w-100"
+                id="ex1-tab-3"
+                data-mdb-toggle="pill"
+                href="#ex1-pills-3"
+                role="tab"
+                aria-controls="ex1-pills-3"
+                aria-selected="false"
+                > {{"Shipping info"|translate}}</a
+              >
+            </li>
+            <li class="nav-item d-flex" role="presentation">
+              <a
+                class="nav-link d-flex align-items-center justify-content-center w-100"
+                id="ex1-tab-4"
+                data-mdb-toggle="pill"
+                href="#ex1-pills-4"
+                role="tab"
+                aria-controls="ex1-pills-4"
+                aria-selected="false"
+                > {{"Seller profile"|translate}}</a
+              >
+            </li>
+          </ul>
+          <!-- Pills navs -->
+
+          <!-- Pills content -->
+          <div class="tab-content" id="ex1-content">
+            <div
+              class="tab-pane fade show active"
+              id="ex1-pills-1"
+              role="tabpanel"
+              aria-labelledby="ex1-tab-1"
+            >
+              <p>
+                @if(language==='en') {
+                  <h4 id="tit">{{ product?.description }}</h4>
+      
+                  } @else {
+                  <h4 id="tit">{{ product?.description_AR }}</h4>
+                  }
+              </p>
+              
+              <div class="row mb-2">
+                <div class="col-12 col-md-6">
+                  <ul class="list-unstyled mb-0">
+                    <li>
+                      <i class="fas fa-check text-success me-2"></i>
+                      {{ "Some great feature name here" | translate }}
+                      
+                    </li>
+                    <li>
+                      <i class="fas fa-check text-success me-2"></i>
+                      {{ "Lorem ipsum dolor sit amet, consectetur" | translate }}
+                      
+                    </li>
+                    <li>
+                      <i class="fas fa-check text-success me-2"></i>
+                      {{ "Duis aute irure dolor in reprehenderit" | translate }}
+                      
+                    </li>
+                    <li>
+                      <i class="fas fa-check text-success me-2"></i>
+                      {{ "Optical heart sensor" | translate }}
+                      
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-12 col-md-6 mb-0">
+                  <ul class="list-unstyled">
+                    <li>
+                      <i class="fas fa-check text-success me-2"></i>
+                      {{ "Easy fast and ver good" | translate }}
+                      
+                    </li>
+                    <li>
+                      <i class="fas fa-check text-success me-2"></i>
+                      {{ "Some great feature name here" | translate }}
+                      
+                    </li>
+                    <li>
+                      <i class="fas fa-check text-success me-2"></i>
+                      {{ "Modern style and design" | translate }}
+                      
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <table class="table border mt-3 mb-2">
+                <tr>
+                  <div  *ngIf="product?.accessories !== null">
+                    <tr>
+                     <th class="py-2"   width="800px">{{ "accessories" | translate }}</th>
+                      <td class="py-2">{{ product?.accessories }}</td>
+                    </tr>
+                  </div>
+                  <div  *ngIf="product?.activityTracking !== null">
+                    <tr>
+                     <th class="py-2"   width="800px">{{ "activityTracking" | translate }}</th>
+                      <td class="py-2">{{ product?.activityTracking }}</td>
+                    </tr>
+                  </div>
+                  <div  *ngIf="product?.ageCategoryApp !== null">
+                    <tr>
+                     <th class="py-2"   width="800px">{{ "ageCategoryApp" | translate }}</th>
+                      <td class="py-2">{{ product?.ageCategoryApp }}</td>
+                    </tr>
+                  </div>
+                  <div  *ngIf="product?.appDownloadAvailable !== null">
+                    <tr>
+                     <th class="py-2"   width="800px">{{ "appAvailable" | translate }}</th>
+                      <td class="py-2">{{ product?.appDownloadAvailable }}</td>
+                    </tr>
+                  </div>
+                  <div  *ngIf="product?.appName !== null">
+                    <tr>
+                     <th class="py-2"   width="800px">{{ "appName" | translate }}</th>
+                      <td class="py-2">{{ product?.appName }}</td>
+                    </tr>
+                  </div>
+                  <div  *ngIf="product?.availableSimCard !== null">
+                    <tr>
+                     <th class="py-2"   width="800px">{{ "availableSimCard" | translate }}</th>
+                      <td class="py-2">{{ product?.availableSimCard }}</td>
+                    </tr>
+                  </div>
+                  <div  *ngIf="product?.bandLength !== null">
+                    <tr>
+                     <th class="py-2"   width="800px">{{ "bandLength" | translate }}</th>
+                      <td class="py-2">{{ product?.bandLength }}</td>
+                    </tr>
+                  </div>
+                  <div  *ngIf="product?.bandWidth !== null">
+                    <tr>
+                     <th class="py-2"   width="800px">{{ "bandWidth" | translate }}</th>
+                      <td class="py-2">{{ product?.bandWidth }}</td>
+                    </tr>
+                  </div>
+                  <div  *ngIf="product?.mechanism !== null">
+                   <th class="py-2"   width="800px">{{ "Mechanism" | translate }}</th>
+                    <td class="py-2">{{ product?.mechanism }}</td>
+                  </div>
+                  <div  *ngIf="product?.modelNumber !== null">
+                   <th class="py-2"   width="800px">{{ "ModelNumber" | translate }}</th>
+                    <td class="py-2">{{ product?.modelNumber }}</td>
+                  </div>
+                  <div  *ngIf="product?.movementType !== null">
+                   <th class="py-2"   width="800px">{{ "MovementType" | translate }}</th>
+                    <td class="py-2">{{ product?.movementType }}</td>
+                  </div>
+                  <div  *ngIf="product?.multiFace !== null">
+                   <th class="py-2"   width="800px">{{ "MultiFace" | translate }}</th>
+                    <td class="py-2">{{ product?.multiFace }}</td>
+                  </div>
+                  <div  *ngIf="product?.networkMode !== null">
+                   <th class="py-2"   width="800px">{{ "NetworkMode" | translate }}</th>
+                    <td class="py-2">{{ product?.networkMode }}</td>
+                  </div>
+                  <div *ngIf="product?.origin !== null">
+                   <th class="py-2"   width="800px" class="pr-3" >{{ "Origin" | translate }}</th>
+                    <td class="pr-2">{{ product?.origin }}</td>
+                  </div>
+                  <div  *ngIf="product?.placeOfOrigin !== null">
+                   <th class="py-2"   width="800px">{{ "PlaceOfOrigin" | translate }}</th>
+                    <td class="py-2">{{ product?.placeOfOrigin }}</td>
+                  </div>
+                  <div  *ngIf="product?.quantity !== null">
+                   <th class="py-2"   width="800px">{{ "Quantity" | translate }}</th>
+                    <td class="py-2">{{ product?.quantity }}</td>
+                  </div>
+                  <div  *ngIf="product?.ram !== null">
+                   <th class="py-2"   width="800px">{{ "Ram" | translate }}</th>
+                    <td class="py-2">{{ product?.ram }}</td>
+                  </div>
+                  <div  *ngIf="product?.rearCamera !== null">
+                   <th class="py-2"   width="800px">{{ "RearCamera" | translate }}</th>
+                    <td class="py-2">{{ product?.rearCamera }}</td>
+                  </div>
+                  <div  *ngIf="product?.removableBattery !== null">
+                   <th class="py-2"   width="800px">{{ "RemovableBattery" | translate }}</th>
+                    <td class="py-2">{{ product?.removableBattery }}</td>
+                  </div>
+                  <div  *ngIf="product?.resolution !== null">
+                   <th class="py-2"   width="800px">{{ "Resolution" | translate }}</th>
+                    <td class="py-2">{{ product?.resolution }}</td>
+                  </div>
+                  <div  *ngIf="product?.rom !== null">
+                   <th class="py-2"   width="800px">{{ "Rom" | translate }}</th>
+                    <td class="py-2">{{ product?.rom }}</td>
+                  </div>
+                  <div  *ngIf="product?.screenMaterial !== null">
+                   <th class="py-2"   width="800px">{{ "ScreenMaterial" | translate }}</th>
+                    <td class="py-2">{{ product?.screenMaterial }}</td>
+                  </div>
+                  <div  *ngIf="product?.screenShape !== null">
+                   <th class="py-2"   width="800px">{{ "ScreenShape" | translate }}</th>
+                    <td class="py-2">{{ product?.screenShape }}</td>
+                  </div>
+                  <div  *ngIf="product?.screenSize !== null">
+                   <th class="py-2"   width="800px">{{ "ScreenSize" | translate }}</th>
+                    <td class="py-2">{{ product?.screenSize }}</td>
+                  </div>
+                  <div  *ngIf="product?.setType !== null">
+                   <th class="py-2"   width="800px">{{ "SetType" | translate }}</th>
+                    <td class="py-2">{{ product?.setType }}</td>
+                  </div>
+                  <div  *ngIf="product?.simCardSlot !== null">
+                   <th class="py-2"   width="800px">{{ "SimCardSlot" | translate }}</th>
+                    <td class="py-2">{{ product?.simCardSlot }}</td>
+                  </div>
+                  <div  *ngIf="product?.strapMaterial !== null">
+                   <th class="py-2"   width="800px">{{ "StrapMaterial" | translate }}</th>
+                    <td class="py-2">{{ product?.strapMaterial }}</td>
+                  </div>
+                  <div  *ngIf="product?.style !== null">
+                   <th class="py-2"   width="800px">{{ "Style" | translate }}</th>
+                    <td class="py-2">{{ product?.style }}</td>
+                  </div>
+                  <div  *ngIf="product?.suitableFaceShapes !== null">
+                   <th class="py-2"   width="800px">{{ "SuitableFaceShapes" | translate }}</th>
+                    <td class="py-2">{{ product?.suitableFaceShapes }}</td>
+                  </div>
+                  <div  *ngIf="product?.sunglassesStyle !== null">
+                   <th class="py-2"   width="800px">{{ "sunglassesStyle" | translate }}</th>
+                    <td class="py-2">{{ product?.sunglassesStyle }}</td>
+                  </div>
+                  <div  *ngIf="product?.system !== null">
+                   <th class="py-2"   width="800px">{{ "System" | translate }}</th>
+                    <td class="py-2">{{ product?.system }}</td>
+                  </div>
+                  <div  *ngIf="product?.touchscreen !== null">
+                   <th class="py-2"   width="800px">{{ "Touchscreen" | translate }}</th>
+                    <td class="py-2">{{ product?.touchscreen }}</td>
+                  </div>
+                  <div  *ngIf="product?.transmissionDistance !== null">
+                   <th class="py-2"   width="800px">{{ "TransmissionDistance" | translate }}</th>
+                    <td class="py-2">{{ product?.transmissionDistance }}</td>
+                  </div>
+                  <div  *ngIf="product?.transmitter !== null">
+                   <th class="py-2"   width="800px">{{ "transmitter" | translate }}</th>
+                    <td class="py-2">{{ product?.transmitter }}</td>
+                  </div>
+                  <div  *ngIf="product?.type !== null">
+                   <th class="py-2"   width="800px">{{ "Type" | translate }}</th>
+                    <td class="py-2">{{ product?.type }}</td>
+                  </div>
+                  <div  *ngIf="product?.usageScope !== null">
+                   <th class="py-2"   width="800px">{{ "UsageScope" | translate }}</th>
+                    <td class="py-2">{{ product?.usageScope }}</td>
+                  </div>
+                  <div  *ngIf="product?.use !== null">
+                   <th class="py-2"   width="800px">{{ "Use" | translate }}</th>
+                    <td class="py-2">{{ product?.use }}</td>
+                  </div>
+                  <div  *ngIf="product?.waterproofRating !== null">
+                   <th class="py-2"   width="800px">{{ "WaterproofRating" | translate }}</th>
+                    <td class="py-2">{{ product?.waterproofRating }}</td>
+                  </div>
+                  <div  *ngIf="product?.weight !== null">
+                   <th class="py-2"   width="800px">{{ "Weight" | translate }}</th>
+                    <td class="py-2">{{ product?.weight }}</td>
+                  </div>
+                  <div  *ngIf="product?.wiFi !== null">
+                   <th class="py-2"   width="800px">{{ "WiFi" | translate }}</th>
+                    <td class="py-2">{{ product?.wiFi }}</td>
+                  </div>
+                  <div  *ngIf="product?.workingHours !== null">
+                   <th class="py-2"   width="800px">{{ "WorkingHours" | translate }}</th>
+                    <td class="py-2">{{ product?.workingHours }}</td>
+                  </div>
+                  
+                  <div  *ngIf="product?.batteryCapacity !== null">
+                    <tr>
+                     <th class="py-2"   width="800px">{{ "batteryCapacity" | translate }}</th>
+                      <td class="py-2">{{ product?.batteryCapacity }}</td>
+                    </tr>
+                  </div>
+                  <div  *ngIf="product?.bluetoothVersion !== null">
+                    <tr>
+                     <th class="py-2"   width="800px">{{ "bluetoothVersion" | translate }}</th>
+                      <td class="py-2">{{ product?.bluetoothVersion }}</td>
+                    </tr>
+                  </div>
+                  <div  *ngIf="product?.brand !== null">
+                    <tr>
+                     <th class="py-2"   width="800px">{{ "brand" | translate }}</th>
+                      <td class="py-2" >{{ product?.brand }}</td>
+                    </tr>
+                  </div>
+                  <div  *ngIf="product?.brandName !== null">
+                    <tr>
+                     <th class="py-2"   width="800px">{{ "brandName" | translate }}</th>
+                      <td class="py-2">{{ product?.brandName }}</td>
+                    </tr>
+                  </div>
+                  <div  *ngIf="product?.builtInVoiceAssistant !== null">
+                    <tr>
+                     <th class="py-2"   width="800px">{{ "builtInVoiceAssistant" | translate }}</th>
+                      <td class="py-2">{{ product?.builtInVoiceAssistant }}</td>
+                    </tr>
+                  </div>
+                  <div  *ngIf="product?.caseMaterial !== null">
+                    <tr>
+                     <th class="py-2"   width="800px">{{ "caseMaterial" | translate }}</th>
+                      <td class="py-2">{{ product?.caseMaterial }}</td>
+                    </tr>
+                  </div>
+                  <div  *ngIf="product?.category !== null">
+                    <tr>
+                     <th class="py-2"   width="800px">{{ "category" | translate }}</th>
+                      <td class="py-2">{{ product?.category }}</td>
+                    </tr>
+                  </div>
+                  <div  *ngIf="product?.certification !== null">
+                    <tr>
+                     <th class="py-2"   width="800px">{{ "certification" | translate }}</th>
+                      <td class="py-2">{{ product?.certification }}</td>
+                    </tr>
+                  </div>
+                  <div  *ngIf="product?.chargingTime !== null">
+                    <tr>
+                     <th class="py-2"   width="800px">{{ "chargingTime" | translate }}</th>
+                      <td class="py-2">{{ product?.chargingTime }}</td>
+                    </tr>
+                  </div>
+                  <div  *ngIf="product?.communicationType !== null">
+                    <tr>
+                     <th class="py-2"   width="800px">{{ "communicationType" | translate }}</th>
+                      <td class="py-2">{{ product?.communicationType }}</td>
+                    </tr>
+                  </div>
+                  <div  *ngIf="product?.companyHistory !== null">
+                    <tr>
+                     <th class="py-2"   width="800px">{{ "companyHistory" | translate }}</th>
+                      <td class="py-2">{{ product?.companyHistory }}</td>
+                    </tr>
+                  </div>
+                  <div  *ngIf="product?.compatibility !== null">
+                    <tr>
+                     <th class="py-2"   width="800px">{{ "compatibility" | translate }}</th>
+                      <td class="py-2">{{ product?.compatibility }}</td>
+                    </tr>
+                  </div>
+                  <div  *ngIf="product?.cpuManufacturer !== null">
+                    <tr>
+                     <th class="py-2"   width="800px">{{ "cpuManufacturer" | translate }}</th>
+                      <td class="py-2">{{ product?.cpuManufacturer }}</td>
+                    </tr>
+                  </div>
+                  <div  *ngIf="product?.cpuModel !== null">
+                    <tr>
+                     <th class="py-2"   width="800px">{{ "cpuModel" | translate }}</th>
+                      <td class="py-2">{{ product?.cpuModel }}</td>
+                    </tr>
+                  </div>
+                  <div  *ngIf="product?.department !== null">
+                    <tr>
+                     <th class="py-2"   width="800px">{{ "department" | translate }}</th>
+                      <td class="py-2">{{ product?.department }}</td>
+                    </tr>
+                  </div>
+                  <div  *ngIf="product?.detachable !== null">
+                    <tr>
+                     <th class="py-2"   width="800px">{{ "detachable" | translate }}</th>
+                      <td class="py-2">{{ product?.detachable }}</td>
+                    </tr>
+                  </div>
+                  <div  *ngIf="product?.eyewearType !== null">
+                    <tr>
+                     <th class="py-2"   width="800px">{{ "eyewearType" | translate }}</th>
+                      <td class="py-2">{{ product?.eyewearType }}</td>
+                    </tr>
+                  </div>
+                  <div  *ngIf="product?.frameColor !== null">
+                    <tr>
+                     <th class="py-2"   width="800px">{{ "frameColor" | translate }}</th>
+                      <td class="py-2">{{ product?.frameColor }}</td>
+                    </tr>
+                  </div>
+                  <div  *ngIf="product?.functionality !== null">
+                    <tr>
+                     <th class="py-2"   width="800px">{{ "Functionality" | translate }}</th>
+                      <td class="py-2">{{ product?.functionality }}</td>
+                    </tr>
+                  </div>
+                  <div  *ngIf="product?.gender !== null">
+                    <tr>
+                     <th class="py-2"   width="800px">{{ "Gender" | translate }}</th>
+                      <td class="py-2">{{ product?.gender }}</td>
+                    </tr>
+                  </div>
+                  <div  *ngIf="product?.gps !== null">
+                    <tr>
+                     <th class="py-2"   width="800px">{{ "Gps" | translate }}</th>
+                      <td class="py-2">{{ product?.gps }}</td>
+                    </tr>
+                  </div>
+                  <div  *ngIf="product?.itemType !== null">
+                    <tr>
+                     <th class="py-2"   width="800px">{{ "ItemType" | translate }}</th>
+                      <td class="py-2">{{ product?.itemType }}</td>
+                    </tr>
+                  </div>
+                  <div  *ngIf="product?.language !== null">
+                    <tr>
+                     <th class="py-2"   width="800px">{{ "Language" | translate }}</th>
+                      <td class="py-2">{{ product?.language }}</td>
+                    </tr>
+                  </div>
+                  <div  *ngIf="product?.lensAttributes !== null">
+                    <tr>
+                     <th class="py-2"   width="800px">{{ "LensAttributes" | translate }}</th>
+                      <td class="py-2">{{ product?.lensAttributes }}</td>
+                    </tr>
+                  </div>
+                  <div  *ngIf="product?.lensColor !== null">
+                    <tr>
+                     <th class="py-2"   width="800px">{{ "lensColor" | translate }}</th>
+                      <td class="py-2">{{ product?.lensColor }}</td>
+                    </tr>
+                  </div>
+                  <div  *ngIf="product?.lensFeatures !== null">
+                    <tr>
+                     <th class="py-2"   width="800px">{{ "LensFeatures" | translate }}</th>
+                      <td class="py-2">{{ product?.lensFeatures }}</td>
+                    </tr>
+                  </div>
+                  <div  *ngIf="product?.lensHeight !== null">
+                    <tr>
+                     <th class="py-2"   width="800px">{{ "LensHeight" | translate }}</th>
+                      <td class="py-2">{{ product?.lensHeight }}</td>
+                    </tr>
+                  </div>
+                  <div  *ngIf="product?.lensMaterial !== null">
+                    <tr>
+                     <th class="py-2"   width="800px" class="py-2">{{ "LensMaterial" | translate }}</th>
+                      <td class="py-2">{{ product?.lensMaterial }}</td>
+                    </tr>
+                  </div>
+                  <div  *ngIf="product?.lensWidth !== null">
+                    <tr>
+                     <th class="py-2"   width="800px">{{ "LensWidth" | translate }}</th>
+                      <td class="py-2">{{ product?.lensWidth }}</td>
+                    </tr>
+                  </div>
+                  
+                  
+                  
+                  <div  *ngIf="product?.measurementScales !== null">
+                     <th class="py-2"   width="800px">{{ "MeasurementScales" | translate }}</th>
+                      <td class="py-2">{{ product?.measurementScales }}</td>
+                     
+                  </div>
+              </table>
+            </div>
+            <div
+              class="tab-pane fade mb-2"
+              id="ex1-pills-2"
+              role="tabpanel"
+              aria-labelledby="ex1-tab-2"
+            >
+              Tab content or sample information now <br />
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat
+              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+              sunt in culpa qui officia deserunt mollit anim id est laborum.
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo
+            </div>
+            <div
+              class="tab-pane fade mb-2"
+              id="ex1-pills-3"
+              role="tabpanel"
+              aria-labelledby="ex1-tab-3"
+            >
+              Another tab content or sample information now <br />
+              Dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+              minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+              aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat
+              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+              sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </div>
+            <div
+              class="tab-pane fade mb-2"
+              id="ex1-pills-4"
+              role="tabpanel"
+              aria-labelledby="ex1-tab-4"
+            >
+              Some other tab content or sample information now <br />
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat
+              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+              sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </div>
+          </div>
+          <!-- Pills content -->
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="px-0 border rounded-2 shadow-0">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Similar items</h5>
+              <div class="d-flex mb-3"  *ngFor="let sproduct of filterproducts.slice(filterproducts.length - 5, filterproducts.length)">
+                <a [href]="sproduct.image[0]" class="me-3">
+                  <img
+                    [src]="sproduct.image[0]"
+                    style="width: 96px; height: 96px; object-fit: cover;"
+                    class="img-md img-thumbnail"
+                      />
+
+                </a>
+                <div class="info">
+                  <a href="#" class="nav-link mb-1">
+                    @if(language==='en') {
+                      <h4 id="tit">{{ product?.title }}</h4>
+                      } @else {
+                      <h4 id="tit">{{ product?.title_AR }}</h4>
+                      }
+                  </a>
+                  <strong class="text-dark"> 
+                     @if(language==='en') {
+                    <h4 id="tit">{{ product?.price }}</h4>
+                    } @else {
+                    <h4 id="tit">{{ product?.price }}</h4>
+                    }</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="m-5"><h2>Product Ratings & Reviews</h2></div>
+<hr class="ml-5" style=" border: none;
+
+height: 4px;
+/* Set the hr color */
+color: #333;  /* old IE */
+background-color: #333;  /* Modern Browsers */"/>
+<div class="row" >
+ <div class="col-lg-1 mt-5"></div>
+  <div class="col-lg-4 p-3 mt-5">
+    <div class="accordion-item">
+      <div class="p-2 mt-5 "><h1>{{averageDegreeRate}}</h1></div>
+      <div class="accordion-body">
+        <div class="form-check p-2" *ngIf=" averageDegreeRate > 4">
+          <label class="form-check-label" for="flexCheckDefault">
+            <i class="fas fa-star text-warning  p-1" style="font-size: 30px;"></i
+            ><i class="fas fa-star text-warning  p-1" style="font-size: 30px;"></i
+            ><i class="fas fa-star text-warning  p-1" style="font-size: 30px;"></i
+            ><i class="fas fa-star text-warning  p-1" style="font-size: 30px;"></i>
+            <i class="fas fa-star text-warning  p-1" style="font-size: 30px;"></i>
+          </label>
+        </div>
+        <!-- Default checkbox -->
+        <div class="form-check" *ngIf="averageDegreeRate <= 4 && averageDegreeRate>3">
+         
+          <label class="form-check-label" for="flexCheckDefault">
+            <i class="fas fa-star text-warning  p-1" style="font-size: 30px;"></i
+            ><i class="fas fa-star text-warning  p-1" style="font-size: 30px;"></i
+            ><i class="fas fa-star text-warning  p-1" style="font-size: 30px;"></i
+            ><i class="fas fa-star text-warning  p-1" style="font-size: 30px;"></i>
+            <i class="fas fa-star text-secondary p-1" style="font-size: 30px;"></i>
+          </label>
+        </div>
+        <!-- Default checkbox -->
+        <div class="form-check"*ngIf="averageDegreeRate <= 3  && averageDegreeRate>2">
+         
+          <label class="form-check-label" for="flexCheckDefault">
+            <i class="fas fa-star text-warning  p-1" style="font-size: 30px;"></i
+            ><i class="fas fa-star text-warning  p-1" style="font-size: 30px;"></i
+            ><i class="fas fa-star text-warning  p-1" style="font-size: 30px;"></i
+            ><i class="fas fa-star text-secondary p-1" style="font-size: 30px;"></i>
+            <i class="fas fa-star text-secondary p-1" style="font-size: 30px;"></i>
+          </label>
+        </div>
+        <!-- Default checkbox -->
+        <div class="form-check" *ngIf="averageDegreeRate <= 2  && averageDegreeRate >1">
+          
+          <label class="form-check-label" for="flexCheckDefault">
+            <i class="fas fa-star text-warning  p-1" style="font-size: 30px;"></i
+            ><i class="fas fa-star text-warning  p-1" style="font-size: 30px;"></i
+            ><i class="fas fa-star text-secondary p-1" style="font-size: 30px;"></i
+            ><i class="fas fa-star text-secondary p-1" style="font-size: 30px;"></i>
+            <i class="fas fa-star text-secondary p-1" style="font-size: 30px;"></i>
+          </label>
+        </div>
+        <div class="form-check" *ngIf="averageDegreeRate <= 1  &&averageDegreeRate>0">
+          
+          <label class="form-check-label" for="flexCheckDefault">
+            <i class="fas fa-star text-warning  p-1" style="font-size: 30px;"></i
+            ><i class="fas fa-star text-secondary p-1" style="font-size: 30px;"></i
+            ><i class="fas fa-star text-secondary p-1" style="font-size: 30px;"></i
+            ><i class="fas fa-star text-secondary p-1" style="font-size: 30px;"></i>
+            <i class="fas fa-star text-secondary p-1" style="font-size: 30px;"></i>
+          </label>
+        </div>
+        <div class="form-check " *ngIf="averageDegreeRate === 0">
+          
+          <label class="form-check-label" for="flexCheckDefault">
+            <i class="fas fa-star text-secondary p-1 " style="font-size: 30px;"></i
+            ><i class="fas fa-star text-secondary p-1" style="font-size: 30px;"></i
+            ><i class="fas fa-star text-secondary p-1" style="font-size: 30px;"></i
+            ><i class="fas fa-star text-secondary p-1" style="font-size: 30px;"></i>
+            <i class="fas fa-star text-secondary p-1" style="font-size: 30px;"></i>
+          </label>
+        </div>
+      </div>
+      <div class="mt-5">بناءً على 5 تقييمات</div>
+      <div class="row">
+        <div class="side">
+          <div>5<img alt="starFilledV2" class="" height="32" src="assets/images/green-star-15590.png" width="32"></div>
+        </div>
+        <div class="middle">
+          <div class="bar-container">
+            <div class="bar-5"></div>
+          </div>
+        </div>
+        <div class="side right">
+          <div>{{countRate[5]}}</div>
+        </div>
+        <br/> <br/><br/>
+        <div class="side">
+          <div>4 <img alt="starFilledV2" class="" color="ratingDarkGreen" height="32" src="assets/images/star.png" width="32"></div>
+        </div>
+        <div class="middle">
+          <div class="bar-container">
+            <div class="bar-4"></div>
+          </div>
+        </div>
+        <div class="side right">
+          <div>{{countRate[4]}}</div>
+        </div>
+        <br/> <br/><br/>
+        <div class="side">
+          <div>3 <img alt="starFilledV2" class="" color="ratingDarkGreen" height="32" src="assets/images/g4.png" width="32"> </div>
+        </div>
+        <div class="middle">
+          <div class="bar-container">
+            <div class="bar-3"></div>
+          </div>
+        </div>
+        <div class="side right">
+          <div>{{countRate[3]}}</div>
+        </div>
+        <br/> <br/><br/> 
+        <div class="side">
+          <div>2 <img alt="starFilledV2" class="" color="ratingDarkGreen" height="32" src="assets/images/g3.png" width="32"> </div>
+        </div>
+        <div class="middle">
+          <div class="bar-container">
+            <div class="bar-2"></div>
+          </div>
+        </div>
+        <div class="side right">
+          <div>{{countRate[2]}}</div>
+        </div>
+        <br/> <br/><br/> 
+        <div class="side">
+          <div>1 <img alt="starFilledV2" class="" color="" height="32" src="assets/images/g5.png" width="32"></div>
+        </div>
+        <div class="middle">
+          <div class="bar-container">
+            <div class="bar-1"></div>
+          </div>
+        </div>
+        <div class="side right">
+          <div>{{countRate[1]}}</div>
+        </div>
+      </div>
+      <br/> <br/><br/> 
+ <div class="mt-5">
+  <div class="">
+    <div class="" >
+
+      <span ><img src="assets/images/mmm.gif" /></span>
+      <h1 class="p-2" style="display: inline;">أزاي أقيّم المنتج ده</h1>
+         
+        <h3>لو اشتريت منتج من نون، ممكن تدخل على "الطلبيات" وبعدين تدوس على "تقديم تقييم". 
+
+        </h3>
+      </div>
+      <div class="sc-3b30efca-20 XA-dQQ">
+        <span ><img src="assets/images/nnn.png" /></span>
+        <h1 style="display: inline;" class="p-2">أزاي بتتحسب التقييمات؟</h1>
+        <h3 >التقييمات من عملاء نون الذين اشتروا المنتج وكتبوا تقييم</h3></div></div>
+      <div
+        id="panelsStayOpen-collapseFive"
+        class="accordion-collapse collapse show"
+        aria-labelledby="headingThree"
+      >
+       
+      </div>
+    </div>
+  </div>
+  
+</div>
+<div class="col-lg-1"></div>
+<div class="col-lg-6 p-2 mt-5">
+  <form (ngSubmit)="addRateProduct()" #rateForm="ngForm" style="width: 80%;">
+    <div class="form-group">
+      <label for="degreeOfRate">Degree of Rate</label>
+      <input id="degreeOfRate" type="number" name="degreeOfRate" class="form-control"
+             placeholder="Please enter your degree of rate" required min="0" max="5"
+             [(ngModel)]="rate.degreeRate" #degreeOfRate="ngModel">
+    </div>
+    <div class="form-group">
+      <label for="type">Please specify your reasons *</label>
+      <select id="type" name="type" class="form-control" required
+              [(ngModel)]="rate.type" #type="ngModel">
+        <option value="" selected disabled>Select Your type of rate</option>
+        <option value="0">Very bad</option>
+        <option value="1">Bad</option>
+        <option value="2">Expensive</option>
+        <option value="3">Good</option>
+        <option value="4">Very good</option>
+        <option value="5">Excellent</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="comment">Comments</label>
+      <textarea id="comment" name="comment" class="form-control" placeholder="Please enter your comments"
+                [(ngModel)]="rate.comment" #comment="ngModel"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!rateForm.valid">Add Rate</button>
+  </form>
+  <br/> <br/>
+  <div *ngFor="let rate of rates">
+    <hr class="" style=" border: none;
+    width: 80%;
+height: 2px;
+color: #333;  /* old IE */
+background-color: #333;  /* Modern Browsers */"/>
+    <div class="row">
+    <div class="col-md-8">
+      <div class="card mb-4 shadow-sm">
+        <div class="card-header">
+          <h4 class="my-0 font-weight-normal">{{rate.degreeRate}}</h4>
+          <div class="accordion-item">
+           
+            <div
+              id="panelsStayOpen-collapseFive"
+              class="accordion-collapse collapse show"
+              aria-labelledby="headingThree"
+            >
+              <div class="accordion-body">
+                <!-- Default checkbox -->
+                <div class="form-check" *ngIf="rate.degreeRate === 5">
+                  <label class="form-check-label" for="flexCheckDefault">
+                    <i class="fas fa-star text-warning  p-1" style="font-size: 30px;"></i
+                    ><i class="fas fa-star text-warning  p-1" style="font-size: 30px;"></i
+                    ><i class="fas fa-star text-warning  p-1" style="font-size: 30px;"></i
+                    ><i class="fas fa-star text-warning  p-1" style="font-size: 30px;"></i>
+                    <i class="fas fa-star text-warning  p-1" style="font-size: 30px;"></i>
+                  </label>
+                </div>
+                <!-- Default checkbox -->
+                <div class="form-check" *ngIf="rate.degreeRate === 4">
+                 
+                  <label class="form-check-label" for="flexCheckDefault">
+                    <i class="fas fa-star text-warning  p-1" style="font-size: 30px;"></i
+                    ><i class="fas fa-star text-warning  p-1" style="font-size: 30px;"></i
+                    ><i class="fas fa-star text-warning  p-1" style="font-size: 30px;"></i
+                    ><i class="fas fa-star text-warning  p-1" style="font-size: 30px;"></i>
+                    <i class="fas fa-star text-secondary p-1" style="font-size: 30px;"></i>
+                  </label>
+                </div>
+                <!-- Default checkbox -->
+                <div class="form-check"*ngIf="rate.degreeRate === 3">
+                 
+                  <label class="form-check-label" for="flexCheckDefault">
+                    <i class="fas fa-star text-warning  p-1" style="font-size: 30px;"></i
+                    ><i class="fas fa-star text-warning  p-1" style="font-size: 30px;"></i
+                    ><i class="fas fa-star text-warning  p-1" style="font-size: 30px;"></i
+                    ><i class="fas fa-star text-secondary p-1" style="font-size: 30px;"></i>
+                    <i class="fas fa-star text-secondary p-1" style="font-size: 30px;"></i>
+                  </label>
+                </div>
+                <!-- Default checkbox -->
+                <div class="form-check" *ngIf="rate.degreeRate === 2">
+                  
+                  <label class="form-check-label" for="flexCheckDefault">
+                    <i class="fas fa-star text-warning  p-1" style="font-size: 30px;"></i
+                    ><i class="fas fa-star text-warning  p-1" style="font-size: 30px;"></i
+                    ><i class="fas fa-star text-secondary p-1" style="font-size: 30px;"></i
+                    ><i class="fas fa-star text-secondary p-1" style="font-size: 30px;"></i>
+                    <i class="fas fa-star text-secondary p-1" style="font-size: 30px;"></i>
+                  </label>
+                </div>
+                <div class="form-check" *ngIf="rate.degreeRate === 1">
+                  
+                  <label class="form-check-label" for="flexCheckDefault">
+                    <i class="fas fa-star text-warning  p-1" style="font-size: 30px;"></i
+                    ><i class="fas fa-star text-secondary p-1" style="font-size: 30px;"></i
+                    ><i class="fas fa-star text-secondary p-1" style="font-size: 30px;"></i
+                    ><i class="fas fa-star text-secondary p-1" style="font-size: 30px;"></i>
+                    <i class="fas fa-star text-secondary p-1" style="font-size: 30px;"></i>
+                  </label>
+                </div>
+                <div class="form-check" *ngIf="rate.degreeRate === 0">
+                  
+                  <label class="form-check-label" for="flexCheckDefault">
+                    <i class="fas fa-star text-secondary p-1"  style="font-size: 30px;"></i
+                    ><i class="fas fa-star text-secondary p-1"  style="font-size: 30px;"></i
+                    ><i class="fas fa-star text-secondary p-1"  style="font-size: 30px;"></i
+                    ><i class="fas fa-star text-secondary p-1"  style="font-size: 30px;"></i>
+                    <i class="fas fa-star text-secondary p-1"  style="font-size: 30px;"></i>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <h1 class="card-title pricing-card-title">
+            <ng-container *ngIf="rate.type === 5">Excellent</ng-container>
+            <ng-container *ngIf="rate.type === 4">Good</ng-container>
+            <ng-container *ngIf="rate.type === 3">Medium</ng-container>
+            <ng-container *ngIf="rate.type === 2">Cheap</ng-container>
+            <ng-container *ngIf="rate.type === 1">Expensive</ng-container>
+            <ng-container *ngIf="rate.type === 0">Bad</ng-container>
+        </h1>
+          <ul class="list-unstyled mt-3 mb-4">
+            <li>{{rate.comment}}</li>
+          </ul>
+        </div> 
+        <div *ngIf="rate.userId === currentUserID" >
+          <button (click)="deleteRateProduct(rate.id)" class="btn-danger p-2 btn m-2" >Delete</button>
+      </div>
+      <div *ngIf="rate.userId === currentUserID">
+        <!-- <form (ngSubmit)="updateRateProduct(rate)" #rateForm="ngForm">
+          <div class="row p-3" >
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="updateDegreeOfRate">Degree of Rate</label>
+                <input id="updateDegreeOfRate" type="number" name="updateDegreeOfRate" class="form-control"
+                       placeholder="Please enter your degree of rate" required min="0" max="5"
+                       [(ngModel)]="rate.degreeRate" #degreeOfRate="ngModel">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="updateType">Please specify your reasons *</label>
+                <select id="updateType" name="updateType" class="form-control" required
+                        [(ngModel)]="rate.type" #type="ngModel">
+                  <option value="" selected disabled>Select Your type of rate</option>
+                  <option value="0">Very bad</option>
+                  <option value="1">Bad</option>
+                  <option value="2">Expensive</option>
+                  <option value="3">Good</option>
+                  <option value="4">Very good</option>
+                  <option value="5">Excellent</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="form-group p-3">
+            <label for="updateComment">Comments</label>
+            <textarea id="updateComment" name="updateComment" class="form-control" placeholder="Please enter your comments"
+                      [(ngModel)]="rate.comment" #comment="ngModel"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary p-2 m-4" [disabled]="!rateForm.valid">Submit</button>
+    </form> -->
+      </div>
+     
+               
+             
+        
+        </div>
+    
+      
+    </div>
+    
+    </div>
+    </div>
+</div>
+</div>
+
+
+
+
+
