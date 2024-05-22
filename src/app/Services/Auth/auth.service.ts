@@ -134,7 +134,9 @@ export class AuthService {
 
   logout(): void {
     localStorage.removeItem('token');
+    localStorage.removeItem('appUserId');
     this.isloggedinBehavior.next(false);
+    
   }
 
   isLoggedIn(): boolean {

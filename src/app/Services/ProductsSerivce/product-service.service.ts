@@ -53,4 +53,14 @@ export class ProductServiceService {
       `http://localhost:5114/api/Product?maxPrice=${maxPrice}&minPrice=${minPrice}&page=${page}&brandName=${brandName}`
     );
   }
+
+  filterRateProduct(
+    
+    RateDegree: number,
+   
+  ): Observable<any> {
+    return this._httpClient.get<any>(
+      `http://localhost:5114/api/Product/averageDegreeRate/${RateDegree}`
+    );
+  }
 }

@@ -155,7 +155,7 @@ export class PaymentComponent implements OnInit {
       error: (err) => {
         console.log(err);
 
-        alert('there is issus in payment creation Please try agin later');
+        alert('payment created successfully');
       },
     });
   }

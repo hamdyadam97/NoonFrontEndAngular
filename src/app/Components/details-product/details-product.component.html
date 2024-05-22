@@ -1163,7 +1163,7 @@ background-color: #333;  /* Modern Browsers */"/>
           <button (click)="deleteRateProduct(rate.id)" class="btn-danger p-2 btn m-2" >Delete</button>
       </div>
       <div *ngIf="rate.userId === currentUserID">
-        <!-- <form (ngSubmit)="updateRateProduct(rate)" #rateForm="ngForm">
+        <form (ngSubmit)="updateRateProduct(rate)" #rateForm="ngForm">
           <div class="row p-3" >
             <div class="col-md-6">
               <div class="form-group">
@@ -1195,7 +1195,7 @@ background-color: #333;  /* Modern Browsers */"/>
                       [(ngModel)]="rate.comment" #comment="ngModel"></textarea>
           </div>
           <button type="submit" class="btn btn-primary p-2 m-4" [disabled]="!rateForm.valid">Submit</button>
-    </form> -->
+    </form>
       </div>
      
                

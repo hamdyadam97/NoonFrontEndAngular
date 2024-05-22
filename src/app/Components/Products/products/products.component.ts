@@ -1,7 +1,9 @@
 import {
   Component,
+  EventEmitter,
   OnChanges,
   OnInit,
+  Output,
   SimpleChanges,
   inject,
 } from '@angular/core';
@@ -45,6 +47,13 @@ export class ProductsComponent implements OnInit {
     private favoriteService: FavoriteService
   ) {}
 
+  handleDataReturned(data: any) {
+    // Handle the returned data here
+    this.filterproducts = data;
+
+    console.log('Data returned from product component:', data);
+  }
+ 
   onFiltersChanged(filters: any) {
     // Handle the filter values received from the side menu
     console.log('Filters changed:', filters);
@@ -74,7 +83,7 @@ export class ProductsComponent implements OnInit {
       const categoryParam = params.get('category');
       this.category = categoryParam || '';
       this.fetchProducts();
-      this.getAllFavorites(); 
+      this.getAllFavorites();
     });
 
     this.language = this._TranslationService.getDefaultLang()?.[0] || 'ar';
@@ -88,7 +97,7 @@ export class ProductsComponent implements OnInit {
         }
       );
   }
-  getImageUrl(img:string): string {
+  getImageUrl(img: string): string {
     if (img.startsWith('https://')) {
       // If the image URL starts with 'https://', it's online
       return img;
@@ -121,9 +130,7 @@ export class ProductsComponent implements OnInit {
               this.totalPage = res.numberOfPages;
               //console.log(res);
             },
-            error: (err) => {
-              
-            },
+            error: (err) => {},
           });
       } else {
         this._productServiceService.getAllProduct(this.page).subscribe({
@@ -132,9 +139,7 @@ export class ProductsComponent implements OnInit {
             this.totalPage = res.numberOfPages;
             console.log(res);
           },
-          error: (err) => {
-            
-          },
+          error: (err) => {},
         });
       }
     } else {
@@ -145,9 +150,7 @@ export class ProductsComponent implements OnInit {
           this.totalPage = res.numberOfPages;
           console.log(res);
         },
-        error: (err) => {
-          
-        },
+        error: (err) => {},
       });
     }
   }
@@ -212,8 +215,10 @@ export class ProductsComponent implements OnInit {
     let userId = localStorage.getItem('appUserId');
     if (!userId) {
       console.error('userId');
+      alert('must be login');
       return;
     }
+
     this.productId = productId;
 
     this.favoriteService.addFavorite(userId, this.productId).subscribe({
@@ -241,9 +246,10 @@ export class ProductsComponent implements OnInit {
       },
       error: (err) => {
         console.log(err);
-      },
+      },      
     });
   }
+  // x
   removeFavorite(productId: number) {
     let userId = localStorage.getItem('appUserId');
     if (!userId) {

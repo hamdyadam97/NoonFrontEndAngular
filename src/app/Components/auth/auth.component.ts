@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, EventEmitter, Output, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { IAuth } from '../../Interfaces/Auth/iauth';
 import { AuthService } from '../../Services/Auth/auth.service';
@@ -17,6 +17,7 @@ import { TranslationService } from '../../Services/trans/translation.service';
   styleUrl: './auth.component.css',
 })
 export class AuthComponent {
+  @Output() loginSuccess = new EventEmitter<void>();
   user: IAuth = {} as IAuth;
   isEdit: boolean = false;
   idUser: string | any;
@@ -46,6 +47,7 @@ export class AuthComponent {
         console.log(res.user.id);
         this._AuthService.saveToken(res.token);
         localStorage.setItem('appUserId', res.user.id);
+        this.loginSuccess.emit();
         this.dialogRef.close();
         // this.router.navigate(['/products']);
       },

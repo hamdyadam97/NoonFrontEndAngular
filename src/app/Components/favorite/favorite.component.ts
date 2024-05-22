@@ -43,6 +43,19 @@ export class FavoriteComponent implements OnInit {
         this.cartService.addtoCart(GetPrdId, res.cartId, 1).subscribe({
           next: (tr) => {
             console.log(tr);
+            this.cartService.getItems().subscribe({
+              next: (re) => {
+                // Update total number of items in the cart
+                // You can store this value in a variable and use it wherever needed
+                console.log(res);
+                console.log(re.cartItems.length);
+                this.cartService.updateTotalItems(re.cartItems.length);
+                // Log the response for debugging
+              },
+              error: (er) => {
+                console.log(er); // Handle error
+              },
+            });
             this.showsuccess('add product in cart successfully');
           },
           error: (err) => {

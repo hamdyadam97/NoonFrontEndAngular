@@ -34,13 +34,13 @@ import { CountRate } from '../../Interfaces/product-brand';
 export class DetailsProductComponent implements OnInit {
   GetPrdId: number = 0;
   category: string = '';
-   countRate: CountRate = {
+  countRate: CountRate = {
     0: 0,
     1: 0,
     2: 0,
     3: 0,
     4: 0,
-    5: 0
+    5: 0,
   } as CountRate;
   product: DIProduct | null = null;
   isLoggedIn: boolean = false;
@@ -107,14 +107,14 @@ export class DetailsProductComponent implements OnInit {
           roundedDegreeRate = 5;
         }
 
-        this.averageDegreeRate =roundedDegreeRate;
+        this.averageDegreeRate = roundedDegreeRate;
         console.log(res);
       },
       error: (err) => {
         console.log(err);
       },
     });
-this.countratefuv();
+    this.countratefuv();
     this._productServiceService.getProductByID(this.GetPrdId).subscribe({
       next: (res) => {
         this.product = res.entity;
@@ -156,8 +156,8 @@ this.countratefuv();
       this.currentNumber--;
     }
   }
-rategit(): void {
-   this._rateService.getRatesProduct(this.GetPrdId).subscribe({
+  rategit(): void {
+    this._rateService.getRatesProduct(this.GetPrdId).subscribe({
       next: (res) => {
         this.rates = res.rates;
         let averageDegreeRate = res.averageDegreeRate;
@@ -170,15 +170,14 @@ rategit(): void {
           roundedDegreeRate = 5;
         }
 
-        this.averageDegreeRate =roundedDegreeRate;
+        this.averageDegreeRate = roundedDegreeRate;
         console.log(res);
       },
       error: (err) => {
         console.log(err);
       },
     });
-
-}
+  }
   createCart(): void {
     if (this.isLoggedIn) {
       console.log('session');
@@ -263,7 +262,7 @@ rategit(): void {
         sessionStorage.getItem('Quantity') || '{}'
       );
       storedProducts.push(this.GetPrdId);
-      storedQuantities[this.GetPrdId] = 0;
+      storedQuantities[this.GetPrdId] = this.currentNumber;
       sessionStorage.setItem('product', JSON.stringify(storedProducts));
       sessionStorage.setItem('Quantity', JSON.stringify(storedQuantities));
     }
@@ -345,11 +344,10 @@ rategit(): void {
     this._rateService.countRate(this.GetPrdId).subscribe({
       next: (res) => {
         console.log(res);
-       this.countRate=res
+        this.countRate = res;
       },
 
       error: (err) => {
-       
         console.log(err);
       },
     });
